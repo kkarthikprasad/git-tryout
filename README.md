@@ -76,9 +76,35 @@ To create a branch from a tag
 Assume you are in one of the feature branch and it is behind the master and you want the commits of the master so the feature branch can move ahead of the master branch and you can continue to do the work of feature branch or you can merge the branch to master itself.
 
     git rebase master ( This will add the commits from master to the current active branch.)
+
+Here the  master branch can be ahead or behind a feature branch. If the master branch is behind and all the commits of the master branch is already present in the feature then there is no need of rebasing and rebasing will shout the feature branch is uptodate with master branch, in case the master branch has any other commits which are missing by the feature branch then the commits will be added to the feature branch and master will remain same. If the master branch is ahead of the feature branch then the feature branch will apply all the commits from the master branch and comes head to head with the master branch , if the new commits are present in the feature branch which are made before rebasing then these will be kept with the branch in additional to the commits of the master (i.e., the commits of the master will be added to the feature branch and the new commits that were made to the feature branch will be kept in feature branch.).
+
+
 In case of conflicts the rebasing will stop and ask for you to resolve the conflicts and then you can continue the rebasing process.
 
     git rebase --continue
+
+12.Cherry picking -- It will allow you to particularly apply one commit from one branch to another ( why only one commit ?? -- That is how you should group the changes to a commit and then make the commit as a individual change like a fix or a patch or a feature . The rebasing or merging will take all the commits to the branch and that is not what is required here only one commit , a fix , a single file change or file added can be taken from one branch to another)
+From the branch in where you want the cherry pick to , run the cherry pic command
+
+    git cherry-pick <COMMIT_FROM_OTHER_BRANCH>
+    
+    
+If the branch from which the commit was taken is merged to the branch to which the commit was applied then the Git will not apply the same commit again (GIT is smart enough to know that commit was alredy taken from that branch) 
+
+13.Adding the remote branches from the local branches
+
+    git push origin new-branch (This will push the whole branch commits to the remote repository , it will create the new branch if it is not present in remote repository).
+    
+14.Deleting remote branches is corky.
+
+    git push origin localbranch:remote-branch ( This will create another branch as remote-branch from the local branch localbranch)
+    
+    git push origin :fe1branch ( This will DELETE  the branch fe1branch in the remote repository and the local branch is not mentioned here)
+    
+
+    
+    
 
 
 
