@@ -78,8 +78,6 @@ Assume you are in one of the feature branch and it is behind the master and you 
     git rebase master ( This will add the commits from master to the current active branch.)
 
 Here the  master branch can be ahead or behind a feature branch. If the master branch is behind and all the commits of the master branch is already present in the feature then there is no need of rebasing and rebasing will shout the feature branch is uptodate with master branch, in case the master branch has any other commits which are missing by the feature branch then the commits will be added to the feature branch and master will remain same. If the master branch is ahead of the feature branch then the feature branch will apply all the commits from the master branch and comes head to head with the master branch , if the new commits are present in the feature branch which are made before rebasing then these will be kept with the branch in additional to the commits of the master (i.e., the commits of the master will be added to the feature branch and the new commits that were made to the feature branch will be kept in feature branch.).
-
-
 In case of conflicts the rebasing will stop and ask for you to resolve the conflicts and then you can continue the rebasing process.
 
     git rebase --continue
