@@ -1,4 +1,4 @@
-# Git  tryouts
+# Git Notes
 
 ### Commands to have on finger tips when working with Git
 Git commands at once.
